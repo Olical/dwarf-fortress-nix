@@ -1,0 +1,36 @@
+= Dwarf Fortress Nix
+
+This is copied from https://github.com/Olical/nixpkgs[my fork of the nixpkgs repository]. I can't get it working perfectly well with the newest versions of DF so I've decided to maintain a mostly working and up to date version in my own stand alone repo until it's stable and ready for a PR.
+
+== Caveats
+
+ * When running through `dfhack` (as you probably should) the game doesn't fully quit when you try to close it.
+ ** Use `die` in `dfhack` to close the game properly and quickly.
+ * If you try to use sound the game won't launch or possibly even segfault.
+ ** Configure the game to not use sound at all at install.
+
+== Installation
+
+I install it through https://github.com/nix-community/home-manager[home-manager] using the following:
+
+[source,nix]
+----
+{ pkgs, ... }:
+
+let
+  df-pkg = pkgs.callPackage (import (fetchTarball https://github.com/Olical/dwarf-fortress-nix/archive/main.tar.gz)) {};
+  dwarf-fortress = (df-pkg.dwarf-fortress-full.override {
+    dfVersion = "0.47.05";
+    enableIntro = false;
+    enableSound = false;
+    enableFPS = true;
+  });
+in
+{
+  home.packages = with pkgs; [
+    dwarf-fortress
+  ];
+}
+----
+
+I may be depending on this repo in a weird way, so if there's a better approach please let me know!
