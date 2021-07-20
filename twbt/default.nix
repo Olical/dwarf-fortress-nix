@@ -49,7 +49,7 @@ let
     };
     "0.47.05" = {
       twbtRelease = "6.61";
-      dfhackRelease = "0.47.05-r1";
+      dfhackRelease = "0.47.05-r2";
       sha256 = "07bqy9rkd64h033sxdpigp5zq4xrr0xd36wdr1b21g649mv8j6yw";
       prerelease = false;
     };
