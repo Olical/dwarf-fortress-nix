@@ -60,7 +60,7 @@ let
     };
     "0.47.05" = {
       dfHackRelease = "0.47.05-r2";
-      sha256 = "1g758mg7022nc8a9zrmmnb4axxggi3xc0zfcya77cwj8zbnsyj07";
+      sha256 = "0h3x8s426gq5xbwj7qdwviyk8jl2vf3bvbqhp4bav9dz9baap7vx";
       xmlRev = "036b662a1bbc96b4911f3cbe74dfa1243b6459bc";
       prerelease = true;
     };
